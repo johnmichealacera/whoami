@@ -1,0 +1,333 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.6;
+    color: #2c2c2c;
+    background-color: #ffffff;
+    font-size: 18px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: normal;
+    letter-spacing: -1px;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+}
+
+/* Main content */
+main {
+    flex: 1;
+}
+
+section {
+    margin-bottom: 80px;
+}
+
+section h2 {
+    font-size: 1.8rem;
+    font-weight: normal;
+    color: #333;
+    margin-bottom: 30px;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+}
+
+.content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.content p {
+    margin-bottom: 25px;
+    text-align: justify;
+}
+
+/* Links section */
+.links {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 40px;
+}
+
+.link-item {
+    margin-bottom: 30px;
+}
+
+.link-item h3 {
+    font-size: 1.3rem;
+    font-weight: normal;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.link-item p {
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.link-item a {
+    color: #666;
+    text-decoration: none;
+    border-bottom: 1px solid #ccc;
+    transition: all 0.2s ease;
+}
+
+.link-item a:hover {
+    color: #333;
+    border-bottom-color: #666;
+}
+
+/* Thoughts section */
+.thoughts {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 40px;
+}
+
+.thought-item {
+    background-color: #f8f8f8;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 3px solid #ddd;
+    font-style: italic;
+    position: relative;
+}
+
+.thought-item::before {
+    content: '"';
+    font-size: 2rem;
+    color: #ccc;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+}
+
+.thought-item::after {
+    content: '"';
+    font-size: 2rem;
+    color: #ccc;
+    position: absolute;
+    right: 10px;
+    bottom: -5px;
+}
+
+.thought-date {
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 10px;
+    font-style: normal;
+}
+
+.add-thought {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#add-thought-btn {
+    background: none;
+    border: 1px solid #ccc;
+    padding: 12px 24px;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#add-thought-btn:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Modal for adding thoughts */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 40px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal h3 {
+    margin-bottom: 20px;
+    font-weight: normal;
+    color: #333;
+}
+
+.modal textarea {
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.5;
+    resize: vertical;
+    margin-bottom: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.modal button {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    background: none;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modal button:hover {
+    background-color: #f0f0f0;
+}
+
+.modal button.primary {
+    background-color: #333;
+    color: white;
+    border-color: #333;
+}
+
+.modal button.primary:hover {
+    background-color: #555;
+}
+
+/* Footer */
+footer {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+footer p {
+    color: #888;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 15px;
+    }
+    
+    header h1 {
+        font-size: 2.5rem;
+    }
+    
+    section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .content {
+        font-size: 1rem;
+    }
+    
+    .modal-content {
+        padding: 30px 20px;
+    }
+}
+
+/* Dark mode toggle (optional) */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1a;
+        color: #e0e0e0;
+    }
+    
+    header h1 {
+        color: #f0f0f0;
+    }
+    
+    section h2 {
+        color: #ccc;
+    }
+    
+    .content p {
+        color: #d0d0d0;
+    }
+    
+    .thought-item {
+        background-color: #2a2a2a;
+        border-left-color: #444;
+    }
+    
+    .link-item a {
+        color: #aaa;
+        border-bottom-color: #555;
+    }
+    
+    .link-item a:hover {
+        color: #ccc;
+        border-bottom-color: #777;
+    }
+    
+    .modal-content {
+        background-color: #2a2a2a;
+        color: #e0e0e0;
+    }
+    
+    .modal textarea {
+        background-color: #333;
+        color: #e0e0e0;
+        border-color: #555;
+    }
+    
+    .modal button {
+        background-color: #333;
+        color: #e0e0e0;
+        border-color: #555;
+    }
+    
+    .modal button:hover {
+        background-color: #444;
+    }
+    
+    .modal button.primary {
+        background-color: #555;
+        border-color: #555;
+    }
+    
+    .modal button.primary:hover {
+        background-color: #666;
+    }
+}
