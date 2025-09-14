@@ -168,6 +168,41 @@ class ThoughtManager {
 // Initialize the thought manager when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     new ThoughtManager();
+    
+    // Local "honor" indicator for returning visitors
+    const firstVisitKey = 'jm_soul_first_visit';
+    const firstVisit = localStorage.getItem(firstVisitKey);
+    
+    if (!firstVisit) {
+        localStorage.setItem(firstVisitKey, new Date().toISOString());
+        // Show a gentle welcome for first-time visitors
+        setTimeout(() => {
+            const welcome = document.createElement('div');
+            welcome.className = 'welcome-note';
+            welcome.textContent = 'Welcome to this space 🌱';
+            document.body.appendChild(welcome);
+            
+            // Fade out after 3 seconds
+            setTimeout(() => {
+                welcome.style.opacity = '0';
+                setTimeout(() => welcome.remove(), 500);
+            }, 3000);
+        }, 1000);
+    } else {
+        // Show subtle hint for returning visitors
+        setTimeout(() => {
+            const returnNote = document.createElement('div');
+            returnNote.className = 'return-note';
+            returnNote.textContent = 'You\'ve visited this space before. —JM';
+            document.body.appendChild(returnNote);
+            
+            // Fade out after 4 seconds
+            setTimeout(() => {
+                returnNote.style.opacity = '0';
+                setTimeout(() => returnNote.remove(), 500);
+            }, 4000);
+        }, 800);
+    }
 });
 
 // Simple typing effect for the title (optional enhancement)
